@@ -5,20 +5,52 @@ namespace CinemaTimeTableConsoleApp
     {
         static void Main(string[] args)
         {
-            Film film = new Film("Шурик", 1.50, 10);
-            Film film1 = new Film("Чапаев", 2.00, 10);
             RoomStorage rooms = new RoomStorage();
             FilmStorage films = new FilmStorage();
-            films.Append(film);
-            films.Append(film1);
-            while (Film.TotalShowTime > 0)
+            while (true)
+            {
+                Console.WriteLine("Введите название фильма:");
+                var title = Console.ReadLine();
+                Console.WriteLine("Введите длительность фильма:");
+                var duration = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Введите количество сеансов:");
+                var showAmount = Convert.ToInt32(Console.ReadLine());
+                Film film = new Film(title, duration, showAmount);
+                films.Append(film);
+                Console.WriteLine("Добавить ещё один фильм? Нажмите Y или N");
+                var userAnswer = GetUserAnswer();
+                Console.ReadKey();
+                if(!userAnswer)
+                {
+                    break;
+                }
+            }
+
+            while (Film.TotalShowAmount > 0)
             {
                 foreach (var room in rooms)
                 {
-                    room.Append(film);
-                    room.Append(film1);
+                    foreach(var film in films)
+                    {
+                        room.Append(film);
+                    }
                 }
             }
+
+            foreach (var room in rooms)
+            {
+                Console.WriteLine(room);
+            }
+        }
+
+        static bool GetUserAnswer()
+        {
+            var userAnswer = Console.ReadKey();
+            if(userAnswer.Key == ConsoleKey.Y)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿public class Film
 {
-    public static double TotalShowTime { get; set; }
+    public static double TotalShowAmount { get; set; }
     public string Title { get; set; }
     public double Duration { get; set; }
     public int DailyAmount { get; set; }
@@ -10,7 +10,7 @@
         Title = title;
         Duration = duration;
         DailyAmount = dailyAmount;
-        TotalShowTime += DailyAmount;
+        TotalShowAmount += DailyAmount;
     }
     public override string ToString()
     {

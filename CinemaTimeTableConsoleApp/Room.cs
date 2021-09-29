@@ -20,7 +20,7 @@ public class Room
             film.DailyAmount--;
             double middleBreak = 0.15;
             TotalTime = TotalTime - film.Duration - middleBreak;
-            Film.TotalShowTime--;
+            Film.TotalShowAmount--;
         }
     }
 
@@ -31,6 +31,6 @@ public class Room
         {
             shows += show + " ";
         }
-        return $"{Number} {shows} {TotalTime}";
+        return $"{Number} {shows}";
     }
 }
