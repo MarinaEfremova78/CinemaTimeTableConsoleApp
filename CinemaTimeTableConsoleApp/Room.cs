@@ -2,9 +2,22 @@
 
 public class Room
 {
-    public int Number { get; set; }
+    private int number;
     public double TotalTime { get; private set; }
     public List<Film> Shows = new List<Film>();
+
+    public int Number
+    {
+        get => number;
+        set
+        {
+            if(value < 0 || value > 6)
+            {
+                throw new RoomNumberInvalidException("Номер зала должен быть от 1 до 6!");
+            }
+            number = value;
+        }
+    }
 
     public Room(int number)
     {
