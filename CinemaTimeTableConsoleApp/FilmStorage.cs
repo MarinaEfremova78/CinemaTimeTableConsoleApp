@@ -3,8 +3,12 @@ using System.Collections.Generic;
 
 public class FilmStorage : IEnumerable<Film>
 {
-    private readonly List<Film> films = new List<Film>();
+    private readonly List<Film> films;
 
+    public FilmStorage()
+    {
+        films = new List<Film>();
+    }
 
     public void Append(Film film)
     {
