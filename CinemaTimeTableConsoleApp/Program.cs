@@ -53,10 +53,18 @@ namespace CinemaTimeTableConsoleApp
                     }
                 }
             }
-
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("{0,-30}   |   {1,-30}", "Название фильма", "Длительность");
             foreach (var room in rooms)
             {
-                Console.WriteLine(room);
+                Console.WriteLine("Зал № " + room.Number);
+                var allShows = room.GetAllFilmsInRoom();
+                foreach(var show in allShows)
+                {
+                    Console.WriteLine(show);
+                    Console.WriteLine();
+                }
             }
         }
 

@@ -33,6 +33,6 @@
     }
     public override string ToString()
     {
-        return $"{Title} {Duration}";
+        return string.Format("{0, -30}   |   {1, -30}", Title, Duration);
     }
 }

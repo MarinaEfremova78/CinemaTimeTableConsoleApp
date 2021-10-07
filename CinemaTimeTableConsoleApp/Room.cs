@@ -37,6 +37,11 @@ public class Room
         }
     }
 
+    public List<Film> GetAllFilmsInRoom()
+    {
+        return Shows;
+    }
+
     public override string ToString()
     {
         string shows = "";
@@ -44,6 +49,6 @@ public class Room
         {
             shows += show + " ";
         }
-        return $"{Number} {shows}";
+        return $"Зал № {Number} {shows}";
     }
 }
