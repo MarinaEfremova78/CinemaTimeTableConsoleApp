@@ -3,7 +3,7 @@
     public static double TotalShowAmount { get; set; }
     public string Title { get; set; }
     public double Duration { get; set; }
-    public int DailyAmount { get; set; }
+    public int ShowAmount { get; set; }
     private int[] availableRooms;
 
     public int[] AvailableRooms
@@ -23,12 +23,12 @@
         }
     }
 
-    public Film(string title, double duration, int dailyAmount, int[] availableRooms)
+    public Film(string title, double duration, int showAmount, int[] availableRooms)
     {
         Title = title;
         Duration = duration;
-        DailyAmount = dailyAmount;
-        TotalShowAmount += DailyAmount;
+        ShowAmount = showAmount;
+        TotalShowAmount += ShowAmount;
         AvailableRooms = availableRooms;
     }
     public override string ToString()

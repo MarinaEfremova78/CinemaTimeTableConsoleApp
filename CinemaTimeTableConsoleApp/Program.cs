@@ -56,6 +56,11 @@ namespace CinemaTimeTableConsoleApp
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("{0,-30}   |   {1,-30}", "Название фильма", "Длительность");
+            for(int i = 0; i <=60; i++)
+            {
+                Console.Write("_");
+            }
+            Console.WriteLine();
             foreach (var room in rooms)
             {
                 Console.WriteLine("Зал № " + room.Number);
@@ -63,7 +68,6 @@ namespace CinemaTimeTableConsoleApp
                 foreach(var show in allShows)
                 {
                     Console.WriteLine(show);
-                    Console.WriteLine();
                 }
             }
         }

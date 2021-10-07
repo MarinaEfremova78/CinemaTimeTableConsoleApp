@@ -27,10 +27,10 @@ public class Room
 
     public void Append(Film film)
     {
-        if (film.DailyAmount > 0)
+        if (film.ShowAmount > 0)
         {
             Shows.Add(film);
-            film.DailyAmount--;
+            film.ShowAmount--;
             double middleBreak = 0.15;
             TotalTime = TotalTime - film.Duration - middleBreak;
             Film.TotalShowAmount--;
@@ -40,15 +40,5 @@ public class Room
     public List<Film> GetAllFilmsInRoom()
     {
         return Shows;
-    }
-
-    public override string ToString()
-    {
-        string shows = "";
-        foreach (var show in Shows)
-        {
-            shows += show + " ";
-        }
-        return $"Зал № {Number} {shows}";
     }
 }
